@@ -29,11 +29,11 @@ wasm = [
 ]
 
 [dependencies]
-pictor-core = { path = "../pictor-core" }
-pictor-kernels = { path = "../pictor-kernels" }
-pictor-model = { path = "../pictor-model" }
-pictor-runtime = { path = "../pictor-runtime", default-features = false }
-pictor-rag = { path = "../pictor-rag", optional = true }
-pictor-eval = { path = "../pictor-eval", optional = true }
-pictor-tokenizer = { path = "../pictor-tokenizer", optional = true }
-pictor-serve = { path = "../pictor-serve", optional = true }
+pictor-core = { workspace = true }
+pictor-kernels = { workspace = true }
+pictor-model = { workspace = true }
+pictor-runtime = { workspace = true, default-features = false }
+pictor-rag = { workspace = true, optional = true }
+pictor-eval = { workspace = true, optional = true }
+pictor-tokenizer = { workspace = true, optional = true }
+pictor-serve = { workspace = true, optional = true }

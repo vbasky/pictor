@@ -11,8 +11,8 @@ categories = ["science", "algorithms"]
 readme = "README.md"
 
 [dependencies]
-pictor-core = { path = "../pictor-core" }
-pictor-runtime = { path = "../pictor-runtime", default-features = false }
+pictor-core = { workspace = true }
+pictor-runtime = { workspace = true, default-features = false }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.150"
 thiserror = "2.0.18"

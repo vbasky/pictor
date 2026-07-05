@@ -21,17 +21,17 @@ rust-version = "1.86"
 repository = "https://github.com/vbasky/pictor"
 
 [workspace.dependencies]
-# ── Internal crates ──
-pictor-core = { path = "crates/pictor-core" }
-pictor-kernels = { path = "crates/pictor-kernels" }
-pictor = { path = "crates/pictor" }
-pictor-image = { path = "crates/pictor-image" }
-pictor-model = { path = "crates/pictor-model" }
-pictor-runtime = { path = "crates/pictor-runtime" }
-pictor-tokenizer = { path = "crates/pictor-tokenizer" }
-pictor-rag = { path = "crates/pictor-rag" }
-pictor-eval = { path = "crates/pictor-eval" }
-pictor-serve = { path = "crates/pictor-serve" }
+# ── Internal crates (version required for crates.io publish) ──
+pictor-core = { path = "crates/pictor-core", version = "0.1.0" }
+pictor-kernels = { path = "crates/pictor-kernels", version = "0.1.0" }
+pictor = { path = "crates/pictor", version = "0.1.0" }
+pictor-image = { path = "crates/pictor-image", version = "0.1.0" }
+pictor-model = { path = "crates/pictor-model", version = "0.1.0" }
+pictor-runtime = { path = "crates/pictor-runtime", version = "0.1.0" }
+pictor-tokenizer = { path = "crates/pictor-tokenizer", version = "0.1.0" }
+pictor-rag = { path = "crates/pictor-rag", version = "0.1.0" }
+pictor-eval = { path = "crates/pictor-eval", version = "0.1.0" }
+pictor-serve = { path = "crates/pictor-serve", version = "0.1.0" }
 
 # ── Pure Rust dependencies ──
 scirs2-core = { version = "0.5.0", default-features = false }

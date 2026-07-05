@@ -20,10 +20,10 @@ metal = ["pictor-kernels/metal", "pictor-model/metal"]
 native-cuda = ["pictor-kernels/native-cuda", "pictor-model/native-cuda"]
 
 [dependencies]
-pictor-core = { path = "../pictor-core" }
-pictor-kernels = { path = "../pictor-kernels" }
-pictor-model = { path = "../pictor-model" }
-pictor-tokenizer = { path = "../pictor-tokenizer" }
+pictor-core = { workspace = true }
+pictor-kernels = { workspace = true }
+pictor-model = { workspace = true }
+pictor-tokenizer = { workspace = true }
 thiserror = "2.0.18"
 tracing = "0.1.44"
 serde = { version = "1.0.228", features = ["derive"] }
@@ -33,7 +33,7 @@ memmap2 = "0.9.10"
 axum = { version = "0.8.9", optional = true }
 tower = { version = "0.5.3", optional = true }
 tower-http = { version = "0.6.11", features = ["cors", "trace"], optional = true }
-pictor-rag = { path = "../pictor-rag" }
+pictor-rag = { workspace = true }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 tracing-subscriber = { version = "0.3.23", features = ["env-filter", "json"] }

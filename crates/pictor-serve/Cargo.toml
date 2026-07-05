@@ -19,9 +19,9 @@ metal = ["pictor-runtime/metal"]
 native-cuda = ["pictor-runtime/native-cuda"]
 
 [dependencies]
-pictor-core = { path = "../pictor-core" }
-pictor-runtime = { path = "../pictor-runtime", features = ["server"] }
-pictor-tokenizer = { path = "../pictor-tokenizer" }
+pictor-core = { workspace = true }
+pictor-runtime = { workspace = true, features = ["server"] }
+pictor-tokenizer = { workspace = true }
 tokio = { version = "1.52.3", features = ["full"] }
 tracing = "0.1.44"
 tracing-subscriber = { version = "0.3.23", features = ["env-filter", "json"] }

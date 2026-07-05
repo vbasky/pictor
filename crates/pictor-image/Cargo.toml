@@ -17,8 +17,8 @@ cuda = ["pictor-kernels/cuda"]
 native-cuda = ["pictor-kernels/native-cuda"]
 
 [dependencies]
-pictor-core = { path = "../pictor-core" }
-pictor-kernels = { path = "../pictor-kernels" }
+pictor-core = { workspace = true }
+pictor-kernels = { workspace = true }
 half = { version = "2.7.1", features = ["serde"] }
 thiserror = "2.0.18"
 memmap2 = "0.9.10"
@@ -30,4 +30,4 @@ serde_json = "1.0.150"
 
 [dev-dependencies]
 tempfile = "3.27.0"
-pictor-kernels = { path = "../pictor-kernels" }
+pictor-kernels = { workspace = true }
