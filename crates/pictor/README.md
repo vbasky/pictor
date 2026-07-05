@@ -2,17 +2,17 @@
 
 Pure Rust 1-bit LLM inference engine for PrismML Bonsai models — umbrella crate.
 
-**Status:** Stable (thin re-export facade) · **Version:** 0.2.2 · **Updated:** 2026-05-30
+**Status:** Stable (thin re-export facade) · **Version:** 0.1.0 · **Updated:** 2026-05-30
 
 Re-exports all Pictor subcrates for convenience. Add this single dependency
 to get access to the entire Pictor ecosystem:
 
 ```toml
 [dependencies]
-pictor = "0.2.2"
+pictor = "0.1.0"
 
 # Enable optional subsystems:
-pictor = { version = "0.2.2", features = ["full"] }
+pictor = { version = "0.1.0", features = ["full"] }
 ```
 
 ## Subcrates

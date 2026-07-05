@@ -1,6 +1,6 @@
 # pictor-serve
 
-**Status:** Stable — **Version:** 0.2.2 — **Tests:** 161 passing
+**Status:** Stable — **Version:** 0.1.0 — **Tests:** 161 passing
 
 Standalone OpenAI-compatible inference server for Pictor.
 

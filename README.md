@@ -20,6 +20,7 @@ video, multimodal agent sessions, and browser/edge deployment share the same
 kernel fabric, GGUF artifact model, and parity contract tomorrow. See
 [ROADMAP.md](ROADMAP.md) for the full horizon.
 
+[![crates.io](https://img.shields.io/crates/v/pictor)](https://crates.io/crates/pictor)
 [![License](https://img.shields.io/github/license/vbasky/pictor)](LICENSE)
 [![MSRV](https://img.shields.io/badge/MSRV-1.86-blue)](https://www.rust-lang.org)
 [![Tests](https://img.shields.io/badge/tests-4k%2B%20passing-brightgreen)](crates/pictor-core)
@@ -200,7 +201,7 @@ cargo build --release
 ```toml
 # Cargo.toml
 [dependencies]
-pictor-image = { path = "crates/pictor-image", features = ["metal"] }
+pictor-image = { version = "0.1", features = ["metal"] }
 ```
 
 ```rust,no_run
@@ -232,7 +233,7 @@ and related env vars — see [`crates/pictor-image/README.md`](crates/pictor-ima
 
 ```toml
 [dependencies]
-pictor-runtime = { path = "crates/pictor-runtime", features = ["metal"] }
+pictor-runtime = { version = "0.1", features = ["metal"] }
 ```
 
 ```rust,no_run
@@ -249,7 +250,7 @@ Or pull the full stack through the facade:
 
 ```toml
 [dependencies]
-pictor = { path = "crates/pictor", features = ["full", "metal"] }
+pictor = { version = "0.1", features = ["full", "metal"] }
 ```
 
 ---

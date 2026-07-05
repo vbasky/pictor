@@ -10,7 +10,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ## Status
 
-**Stable** — 796 tests passing (`cargo nextest run -p pictor-runtime --all-features`), version 0.2.2.
+**Stable** — 796 tests passing (`cargo nextest run -p pictor-runtime --all-features`), version 0.1.0.
 
 ## Features
 
@@ -50,7 +50,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ```toml
 [dependencies]
-pictor-runtime = "0.2.2"
+pictor-runtime = "0.1.0"
 ```
 
 ```rust

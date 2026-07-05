@@ -8,7 +8,7 @@ embedding, Grouped Query Attention with RoPE, SwiGLU MLP, RMSNorm, paged
 KV-cache, and Metal/CUDA full-forward integration via `pictor-kernels`.
 
 **Status:** Stable — 673 tests passing (`cargo nextest run -p pictor-model`)
-**Version:** 0.2.2
+**Version:** 0.1.0
 
 Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
@@ -85,7 +85,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ```toml
 [dependencies]
-pictor-model = "0.2.2"
+pictor-model = "0.1.0"
 ```
 
 ## License

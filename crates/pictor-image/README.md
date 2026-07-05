@@ -1,8 +1,8 @@
-# pictor
+# pictor-image
 
 Pure-Rust text-to-image pipeline: FLUX.2-Klein DiT (TQ2_0_g128 ternary) + AutoencoderKLFlux2 VAE + Qwen3-4B 4-bit text encoder + PNG output, all parity-validated against the MLX reference at cosine ≥ 0.999.
 
-**Version:** 0.2.2
+**Version:** 0.1.0
 
 Part of [pictor](https://github.com/vbasky/pictor).
 
@@ -10,7 +10,7 @@ Part of [pictor](https://github.com/vbasky/pictor).
 
 ## What it does
 
-`pictor` implements the complete Bonsai-Image text-to-image pipeline in
+`pictor-image` implements the complete Bonsai-Image text-to-image pipeline in
 Pure Rust. Given a text prompt, it runs:
 
 ```text
@@ -59,7 +59,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-pictor = { version = "0.2.2", features = ["metal"] }  # or "native-cuda"
+pictor-image = { version = "0.1", features = ["metal"] }  # or "native-cuda"
 ```
 
 Build with the matching GPU feature:

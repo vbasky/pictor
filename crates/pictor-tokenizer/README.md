@@ -1,6 +1,6 @@
 # pictor-tokenizer
 
-**Version:** 0.2.2 · **Status:** Stable · **Tests:** 268 passing
+**Version:** 0.1.0 · **Status:** Stable · **Tests:** 268 passing
 
 Pure Rust BPE tokenizer for Pictor — WASM-safe, zero FFI.
 
@@ -30,7 +30,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ```toml
 [dependencies]
-pictor-tokenizer = "0.2.2"
+pictor-tokenizer = "0.1.0"
 ```
 
 ```rust

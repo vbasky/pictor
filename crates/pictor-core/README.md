@@ -1,6 +1,6 @@
 # pictor-core
 
-[![Version](https://img.shields.io/badge/version-0.2.2-blue.svg)](https://crates.io/crates/pictor-core)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://crates.io/crates/pictor-core)
 [![Tests](https://img.shields.io/badge/tests-207%20passing-brightgreen.svg)]()
 [![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)]()
 
@@ -37,7 +37,7 @@ Part of [pictor](https://github.com/vbasky/pictor).
 
 ```toml
 [dependencies]
-pictor-core = "0.2.2"
+pictor-core = "0.1.0"
 ```
 
 ## License

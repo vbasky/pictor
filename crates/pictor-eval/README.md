@@ -1,6 +1,6 @@
 # pictor-eval
 
-[![Version](https://img.shields.io/badge/version-0.2.2-blue.svg)](https://crates.io/crates/pictor-eval)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://crates.io/crates/pictor-eval)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)]()
 [![Tests](https://img.shields.io/badge/tests-513%20passing-brightgreen.svg)]()
 
@@ -14,7 +14,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ## Status
 
-**Stable** (v0.2.2) — 513 tests passing.
+**Stable** (v0.1.0) — 513 tests passing.
 
 ## Features
 
@@ -35,7 +35,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ```toml
 [dependencies]
-pictor-eval = "0.2.2"
+pictor-eval = "0.1.0"
 ```
 
 ```rust

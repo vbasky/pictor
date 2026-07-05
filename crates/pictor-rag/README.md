@@ -1,6 +1,6 @@
 # pictor-rag
 
-[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://crates.io/crates/pictor-rag)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://crates.io/crates/pictor-rag)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen)](https://github.com/vbasky/pictor)
 [![Tests](https://img.shields.io/badge/tests-871_passing-brightgreen)](https://github.com/vbasky/pictor)
 
@@ -15,7 +15,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ## Status
 
-**Stable** — version 0.2.2, 871 tests passing (`cargo nextest run -p pictor-rag`). Uplifted from Alpha in 0.1.2.
+**Stable** — version 0.1.0, 871 tests passing (`cargo nextest run -p pictor-rag`). Uplifted from Alpha in 0.1.2.
 
 ## Features
 
@@ -34,7 +34,7 @@ Part of the [Pictor](https://github.com/vbasky/pictor) project.
 
 ```toml
 [dependencies]
-pictor-rag = "0.2.2"
+pictor-rag = "0.1.0"
 ```
 
 ```rust

@@ -1,6 +1,6 @@
 # pictor-kernels
 
-[![Version](https://img.shields.io/badge/version-0.2.2-blue.svg)](https://crates.io/crates/pictor-kernels)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://crates.io/crates/pictor-kernels)
 
 Q1_0_g128 (1-bit) and TQ2_0_g128 (ternary) compute kernels for Pictor — dequantization, GEMV, GEMM, fused full-forward.
 
@@ -63,7 +63,7 @@ Part of [pictor](https://github.com/vbasky/pictor).
 ```toml
 [dependencies]
 # Auto-detect at runtime:
-pictor-kernels = { version = "0.2.2", features = ["simd-avx2"] }
+pictor-kernels = { version = "0.1.0", features = ["simd-avx2"] }
 ```
 
 ```rust
