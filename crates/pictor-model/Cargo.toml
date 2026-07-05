@@ -1,0 +1,35 @@
+[package]
+name = "pictor-model"
+description = "Qwen3-8B Transformer implementation for Pictor 1-bit inference"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/pictor-model"
+readme = "README.md"
+keywords = ["transformer", "qwen3", "kv-cache", "llm", "inference"]
+categories = ["science", "algorithms"]
+
+[features]
+wasm = []
+metal = ["pictor-kernels/metal"]
+native-cuda = ["pictor-kernels/native-cuda"]
+
+[dependencies]
+pictor-core = { path = "../pictor-core" }
+pictor-kernels = { path = "../pictor-kernels" }
+half = { version = "2.7.1", features = ["serde"] }
+rayon = "1.12.0"
+serde = { version = "1.0.228", features = ["derive"] }
+thiserror = "2.0.18"
+tracing = "0.1.44"
+safetensors = "0.7.0"
+anyhow = "1.0.102"
+serde_json = "1.0.150"
+oxionnx-proto = "0.1.4"
+memmap2 = "0.9.10"
+
+[dev-dependencies]
+proptest = "1.11.0"
+serde_json = "1.0.150"

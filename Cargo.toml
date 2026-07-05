@@ -1,0 +1,102 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/pictor-core",
+    "crates/pictor-kernels",
+    "crates/pictor-image",
+    "crates/pictor",
+    "crates/pictor-model",
+    "crates/pictor-runtime",
+    "crates/pictor-tokenizer",
+    "crates/pictor-rag",
+    "crates/pictor-eval",
+    "crates/pictor-serve",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+rust-version = "1.86"
+repository = "https://github.com/vbasky/pictor"
+
+[workspace.dependencies]
+# ── Internal crates ──
+pictor-core = { path = "crates/pictor-core" }
+pictor-kernels = { path = "crates/pictor-kernels" }
+pictor = { path = "crates/pictor" }
+pictor-image = { path = "crates/pictor-image" }
+pictor-model = { path = "crates/pictor-model" }
+pictor-runtime = { path = "crates/pictor-runtime" }
+pictor-tokenizer = { path = "crates/pictor-tokenizer" }
+pictor-rag = { path = "crates/pictor-rag" }
+pictor-eval = { path = "crates/pictor-eval" }
+pictor-serve = { path = "crates/pictor-serve" }
+
+# ── Pure Rust dependencies ──
+scirs2-core = { version = "0.5.0", default-features = false }
+scirs2-linalg = { version = "0.5.0", default-features = false }
+scirs2-neural = { version = "0.5.0", default-features = false }
+oxifft = "0.3.2"
+oxiarc-deflate = "0.3.3"
+
+# ── GPU backends ──
+metal = "0.33.0"
+cudarc = { version = "0.19", features = ["nvrtc", "cuda-version-from-build-system", "fallback-latest"] }
+objc = "0.2"
+
+# ── Error handling ──
+thiserror = "2.0.18"
+anyhow = "1.0.102"
+
+# ── Observability ──
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter", "json"] }
+
+# ── Serialization ──
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+toml = "1.1.2"
+
+# ── Async runtime ──
+tokio = { version = "1.52.3", features = ["full"] }
+tokio-stream = "0.1.18"
+
+# ── HTTP server ──
+axum = "0.8.9"
+tower = "0.5.3"
+tower-http = { version = "0.6.11", features = ["cors", "trace"] }
+http-body-util = "0.1.3"
+
+# ── CLI ──
+clap = { version = "4.6.1", features = ["derive"] }
+dotenvy = "0.15.7"
+
+# ── Binary / memory / numerics ──
+memmap2 = "0.9.10"
+byteorder = "1.5.0"
+half = { version = "2.7.1", features = ["serde"] }
+libc = "0.2.186"
+mach2 = "0.6.0"
+crc32fast = "1.5.0"
+
+# ── Parallelism ──
+rayon = "1.12.0"
+
+# ── Tokenizer ──
+tokenizers = { version = "0.23.1", default-features = false, features = ["fancy-regex"] }
+
+# ── Model conversion ──
+safetensors = "0.7.0"
+oxionnx-proto = "0.1.4"
+
+# ── HTTP client ──
+reqwest = { version = "0.13", features = ["json", "blocking"] }
+ctrlc = { version = "3.5.2", features = ["termination"] }
+
+# ── Benchmarking (dev) ──
+criterion = { version = "0.8.2", features = ["html_reports"] }
+
+# ── Testing (dev) ──
+proptest = "1.11.0"
+tempfile = "3.27.0"

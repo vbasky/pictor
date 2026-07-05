@@ -1,0 +1,20 @@
+pictor
+======
+
+This project is a derivative work based on oxibonsai, originally written
+and distributed by COOLJAPAN OU under the Apache License 2.0.
+
+The oxibonsai codebase provided the foundational architecture, kernels,
+model implementations, runtime, and supporting crates that pictor continues
+to develop under new naming and independent maintenance.
+
+Original work
+  Copyright 2024-2026 COOLJAPAN OU
+  License: Apache License 2.0
+
+Modifications and continuation as pictor
+  Copyright 2026 Vikram Bhaskaran
+  License: Apache License 2.0
+
+This NOTICE file is provided to satisfy the attribution requirements of
+Section 4(d) of the Apache License, Version 2.0.

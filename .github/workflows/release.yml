@@ -1,0 +1,114 @@
+name: Release
+
+on:
+  push:
+    tags: [v*]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Generate release notes
+        run: |
+          VERSION="${{ github.ref_name }}"
+          awk -v ver="${VERSION#v}" \
+            '$0 ~ "^## \\[" ver "\\] - " { found=1; next }
+             found && /^## / { exit }
+             found { print }' \
+            CHANGELOG.md > /tmp/release-notes.md
+
+          if ! grep -q '[^[:space:]]' /tmp/release-notes.md; then
+            echo "::error::No CHANGELOG section for ${VERSION#v}" >&2
+            exit 1
+          fi
+
+      - name: Publish Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: pictor ${{ github.ref_name }}
+          body_path: /tmp/release-notes.md
+
+  publish-crates:
+    name: Publish crates.io packages
+    needs: [release]
+    runs-on: ubuntu-latest
+    env:
+      CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      VERSION: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Rust
+        run: rustup update stable --no-self-update
+
+      - name: Publish crates in dependency order
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="${VERSION#v}"
+          crates=(
+            pictor-core
+            pictor-kernels
+            pictor-tokenizer
+            pictor-model
+            pictor-eval
+            pictor-rag
+            pictor-runtime
+            pictor-serve
+            pictor-image
+            pictor
+          )
+
+          already_published() {
+            local crate="$1"
+            local v="$2"
+            local status
+            status=$(curl -s -o /dev/null -w "%{http_code}" "https://crates.io/api/v1/crates/${crate}/${v}")
+            [[ "$status" == "200" ]]
+          }
+
+          publish_with_retries() {
+            local crate="$1"
+            local attempts=5
+            local delay=30
+
+            if already_published "$crate" "$version"; then
+              echo "==> ${crate} ${version} already on crates.io — skipping"
+              return 0
+            fi
+
+            for attempt in $(seq 1 "$attempts"); do
+              echo "==> Publishing ${crate} ${version} (attempt ${attempt}/${attempts})"
+              output=$(cargo publish -p "$crate" --locked 2>&1) && return 0
+
+              if echo "$output" | grep -q "already exists\|already uploaded"; then
+                echo "==> ${crate} ${version} already published"
+                return 0
+              fi
+
+              echo "$output" >&2
+
+              if [[ "$attempt" -lt "$attempts" ]]; then
+                echo "==> Waiting ${delay}s before retry"
+                sleep "$delay"
+              fi
+            done
+
+            echo "ERROR: failed to publish ${crate} ${version}" >&2
+            return 1
+          }
+
+          for crate in "${crates[@]}"; do
+            publish_with_retries "$crate"
+          done

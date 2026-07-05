@@ -1,0 +1,33 @@
+[package]
+name = "pictor-image"
+description = "FLUX.2 DiT (bonsai-image) GGUF weight loader and configuration for Pictor"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/pictor-image"
+keywords = ["gguf", "flux", "diffusion", "ternary", "text-to-image"]
+categories = ["science", "algorithms"]
+
+[features]
+metal = ["pictor-kernels/metal"]
+cuda = ["pictor-kernels/cuda"]
+native-cuda = ["pictor-kernels/native-cuda"]
+
+[dependencies]
+pictor-core = { path = "../pictor-core" }
+pictor-kernels = { path = "../pictor-kernels" }
+half = { version = "2.7.1", features = ["serde"] }
+thiserror = "2.0.18"
+memmap2 = "0.9.10"
+safetensors = "0.7.0"
+oxiarc-deflate = "0.3.3"
+crc32fast = "1.5.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+
+[dev-dependencies]
+tempfile = "3.27.0"
+pictor-kernels = { path = "../pictor-kernels" }

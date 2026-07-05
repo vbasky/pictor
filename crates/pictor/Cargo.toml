@@ -1,0 +1,39 @@
+[package]
+name = "pictor"
+description = "Pure Rust 1-bit LLM inference engine for PrismML Bonsai models — umbrella crate"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/pictor"
+readme = "README.md"
+keywords = ["llm", "inference", "gguf", "bonsai", "1-bit"]
+categories = ["science", "algorithms", "command-line-utilities"]
+
+[features]
+default = []
+server = ["pictor-runtime/server"]
+rag = ["dep:pictor-rag"]
+simd-avx2 = ["pictor-kernels/simd-avx2"]
+simd-avx512 = ["pictor-kernels/simd-avx512"]
+simd-neon = ["pictor-kernels/simd-neon"]
+native-tokenizer = ["dep:pictor-tokenizer"]
+eval = ["dep:pictor-eval"]
+full = ["server", "rag", "native-tokenizer", "eval"]
+wasm = [
+    "pictor-core/wasm",
+    "pictor-kernels/wasm",
+    "pictor-model/wasm",
+    "pictor-runtime/wasm",
+]
+
+[dependencies]
+pictor-core = { path = "../pictor-core" }
+pictor-kernels = { path = "../pictor-kernels" }
+pictor-model = { path = "../pictor-model" }
+pictor-runtime = { path = "../pictor-runtime", default-features = false }
+pictor-rag = { path = "../pictor-rag", optional = true }
+pictor-eval = { path = "../pictor-eval", optional = true }
+pictor-tokenizer = { path = "../pictor-tokenizer", optional = true }
+pictor-serve = { path = "../pictor-serve", optional = true }

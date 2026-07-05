@@ -1,0 +1,28 @@
+[package]
+name = "pictor-core"
+description = "GGUF Q1_0_g128 loader, tensor types, and configuration for Pictor"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/pictor-core"
+readme = "README.md"
+keywords = ["gguf", "1-bit", "quantization", "llm", "inference"]
+categories = ["science", "algorithms"]
+
+[features]
+default = ["mmap"]
+mmap = ["dep:memmap2"]
+wasm = []
+
+[dependencies]
+thiserror = "2.0.18"
+byteorder = "1.5.0"
+half = { version = "2.7.1", features = ["serde"] }
+memmap2 = { version = "0.9.10", optional = true }
+tracing = "0.1.44"
+serde = { version = "1.0.228", features = ["derive"] }
+
+[dev-dependencies]
+proptest = "1.11.0"

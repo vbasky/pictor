@@ -1,0 +1,25 @@
+[package]
+name = "pictor-tokenizer"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+documentation = "https://docs.rs/pictor-tokenizer"
+description = "Pure Rust BPE tokenizer for Pictor (MeCrab-compatible)"
+keywords = ["tokenizer", "bpe", "nlp", "llm", "wasm"]
+categories = ["text-processing", "encoding"]
+readme = "README.md"
+
+[dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+thiserror = "2.0.18"
+tracing = "0.1.44"
+
+[dev-dependencies]
+proptest = "1.11.0"
+criterion = { version = "0.8.2", features = ["html_reports"] }
+
+[[bench]]
+name = "tokenizer_bench"
+harness = false

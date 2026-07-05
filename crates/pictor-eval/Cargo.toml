@@ -1,0 +1,27 @@
+[package]
+name = "pictor-eval"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+documentation = "https://docs.rs/pictor-eval"
+description = "Model evaluation harness for Pictor — perplexity, MMLU, benchmarks"
+keywords = ["evaluation", "llm", "benchmarks", "perplexity", "mmlu"]
+categories = ["science", "algorithms"]
+readme = "README.md"
+
+[dependencies]
+pictor-core = { path = "../pictor-core" }
+pictor-runtime = { path = "../pictor-runtime", default-features = false }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
+thiserror = "2.0.18"
+tracing = "0.1.44"
+
+[dev-dependencies]
+criterion = { version = "0.8.2", features = ["html_reports"] }
+proptest = "1.11.0"
+
+[[bench]]
+name = "eval_bench"
+harness = false
