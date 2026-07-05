@@ -17,9 +17,9 @@ CRATES=(
     pictor-kernels
     pictor-tokenizer
     pictor-model
-    pictor-eval
     pictor-rag
     pictor-runtime
+    pictor-eval
     pictor-serve
     pictor-image
     pictor
